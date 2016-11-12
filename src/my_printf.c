@@ -5,7 +5,7 @@
 ** Login   <slejeune@epitech.net>
 ** 
 ** Started on  Fri Nov 11 16:10:06 2016 Simon LEJEUNE
-** Last update Fri Nov 11 18:09:10 2016 Simon LEJEUNE
+** Last update Sat Nov 12 10:31:38 2016 Simon LEJEUNE
 */
 
 #include <stdarg.h>
@@ -30,8 +30,10 @@ int	my_printf(char *s, ...)
 	  if (s[i] == 'd')
 	    my_put_nbr(va_arg(ap, int));
 	}
-	  if (s[i] == '\n')
-	    my_putchar('\n');
+      if (s[i] < 32 && s[i] >= 127)
+	my_putchar('/');
+      if (s[i] == '\n')
+	my_putchar('\n');
       i++;
     }
 }
